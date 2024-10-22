@@ -1,0 +1,8 @@
+automation:         UiAutomator2
+remoteUrl:          http://localhost:4723/wd/hub
+platformName:       android
+deviceVer:          '13'
+deviceName:         emulator-5554
+app:                /Minimal-Todo-master/app/app-release.apk
+permissions:        true
+globalTimeout:      60

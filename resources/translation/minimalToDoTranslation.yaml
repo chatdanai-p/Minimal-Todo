@@ -1,0 +1,15 @@
+homepage:
+  lblTitle:                   Minimal
+  lblNoToDo:                  You don't have any todos
+
+addToDoPage:
+  lblTitleText:               Title
+  lblReminder:                Remind Me
+  reminder:
+    lblDate:                  Today
+    calendar:
+      btnCancel:              CANCEL
+      btnOk:                  OK
+    clock:
+      btnCancel:              CANCEL
+      btnOk:                  OK

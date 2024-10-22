@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.5 on darwin)" generated="20241022 10:54:55.053" rpa="false" schemaversion="3">
+<suite id="s1" name="Robot-Framework" source="/Users/5327969/Robot-Framework">
+<suite id="s1-s1" name="Testcases" source="/Users/5327969/Robot-Framework/testcases">
+<suite id="s1-s1-s1" name="ttbSparkAutomationTestAssignment" source="/Users/5327969/Robot-Framework/testcases/ttbSparkAutomationTestAssignment.robot">
+<kw name="Set Appium Timeout" library="AppiumLibrary" type="SETUP">
+<arg>${global_timeout}</arg>
+<doc>Sets the timeout in seconds used by various keywords.</doc>
+<status status="PASS" starttime="20241022 10:54:55.131" endtime="20241022 10:54:55.131"/>
+</kw>
+<test id="s1-s1-s1-t1" name="Add To-Do List With Turn On Remind Me" line="17">
+<kw name="Open Minimal To-Do Application" library="minimalToDoPage">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>${remoteUrl}</arg>
+<arg>platformName=${platformName}</arg>
+<arg>deviceName=${deviceName}</arg>
+<arg>app=${app}</arg>
+<arg>automationName=${automation}</arg>
+<arg>autoGrantPermissions=${permissions}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" starttime="20241022 10:54:55.132" endtime="20241022 10:55:01.273"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${status}</var>
+<arg>Element Attribute Should Match</arg>
+<arg>${notification.lblTitle}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Attribute Should Match" library="AppiumLibrary">
+<arg>${notification.lblTitle}</arg>
+<doc>Verify that an attribute of an element matches the expected criteria.</doc>
+<msg timestamp="20241022 10:55:01.275" level="FAIL">Keyword 'AppiumLibrary.Element Attribute Should Match' expected 3 to 4 arguments, got 1.</msg>
+<status status="FAIL" starttime="20241022 10:55:01.274" endtime="20241022 10:55:01.275"/>
+</kw>
+<msg timestamp="20241022 10:55:01.275" level="INFO">${status} = False</msg>
+<status status="PASS" starttime="20241022 10:55:01.274" endtime="20241022 10:55:01.275"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${status}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20241022 10:55:01.276" level="INFO">False</msg>
+<status status="PASS" starttime="20241022 10:55:01.276" endtime="20241022 10:55:01.276"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${status}' == 'True'</arg>
+<arg>Click Element</arg>
+<arg>${notification.btnAllow}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20241022 10:55:01.276" endtime="20241022 10:55:01.276"/>
+</kw>
+<status status="PASS" starttime="20241022 10:54:55.131" endtime="20241022 10:55:01.276"/>
+</kw>
+<kw name="Verify Home Page Without To-Do List" library="minimalToDoPage">
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${homepage['lblNoToDo']}</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20241022 10:55:01.277" endtime="20241022 10:55:01.416"/>
+</kw>
+<kw name="Element Should Contain Text" library="AppiumLibrary">
+<arg>${homePage.lblTitle}</arg>
+<arg>${homepage['lblTitle']}</arg>
+<doc>Verifies element identified by ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20241022 10:55:01.421" level="INFO">Verifying element 'xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.TextView' contains text 'Minimal'.</msg>
+<msg timestamp="20241022 10:55:01.536" level="INFO">xpath criteria: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.LinearLayout[2]/android.view.ViewGroup/android.widget.TextView</msg>
+<status status="PASS" starttime="20241022 10:55:01.416" endtime="20241022 10:55:01.536"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${homePage.btnMoreOptions}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20241022 10:55:01.570" level="INFO">xpath criteria: //android.widget.ImageView[@content-desc="More options"]</msg>
+<status status="PASS" starttime="20241022 10:55:01.537" endtime="20241022 10:55:01.570"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${homePage.icoToDo}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20241022 10:55:01.600" level="INFO">xpath criteria: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.ImageView</msg>
+<status status="PASS" starttime="20241022 10:55:01.571" endtime="20241022 10:55:01.601"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${homePage.btnAddToDo}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20241022 10:55:01.623" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB</msg>
+<status status="PASS" starttime="20241022 10:55:01.601" endtime="20241022 10:55:01.624"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:01.277" endtime="20241022 10:55:01.624"/>
+</kw>
+<kw name="Add To-Do List With Turn On Remind Me" library="minimalToDofeatures">
+<arg>${Title['thai']}</arg>
+<kw name="Click Add To-Do List Button" library="minimalToDoPage">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${homePage.btnAddToDo}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20241022 10:55:01.631" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB'.</msg>
+<msg timestamp="20241022 10:55:03.300" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB</msg>
+<status status="PASS" starttime="20241022 10:55:01.626" endtime="20241022 10:55:03.300"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:01.626" endtime="20241022 10:55:03.301"/>
+</kw>
+<kw name="Verify Default Add To-Do List Page" library="minimalToDoPage">
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${addToDoPage['lblTitleText']}</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20241022 10:55:03.301" endtime="20241022 10:55:03.330"/>
+</kw>
+<kw name="Hide Keyboard" library="AppiumLibrary">
+<doc>Hides the software keyboard on the device. (optional) In iOS, use `key_name` to press
+a particular key, ex. `Done`. In Android, no parameters are used.</doc>
+<status status="PASS" starttime="20241022 10:55:03.331" endtime="20241022 10:55:03.579"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${addToDoPage.btnClose}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20241022 10:55:04.266" level="INFO">xpath criteria: //android.widget.ImageButton[@content-desc="Navigate up"]</msg>
+<status status="PASS" starttime="20241022 10:55:03.580" endtime="20241022 10:55:04.266"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${addToDoPage.lblTitleValue}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20241022 10:55:04.285" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<status status="PASS" starttime="20241022 10:55:04.266" endtime="20241022 10:55:04.285"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${addToDoPage.btnAction}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20241022 10:55:04.305" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton</msg>
+<status status="PASS" starttime="20241022 10:55:04.286" endtime="20241022 10:55:04.306"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${addToDoPage.icoReminder}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20241022 10:55:04.324" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoReminderIconImageButton</msg>
+<status status="PASS" starttime="20241022 10:55:04.306" endtime="20241022 10:55:04.324"/>
+</kw>
+<kw name="Element Should Contain Text" library="AppiumLibrary">
+<arg>${addToDoPage.lblReminder}</arg>
+<arg>${addToDoPage['lblReminder']}</arg>
+<doc>Verifies element identified by ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20241022 10:55:04.328" level="INFO">Verifying element 'id=com.avjindersinghsekhon.minimaltodo:id/userToDoRemindMeTextView' contains text 'Remind Me'.</msg>
+<msg timestamp="20241022 10:55:04.348" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoRemindMeTextView</msg>
+<status status="PASS" starttime="20241022 10:55:04.324" endtime="20241022 10:55:04.348"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${addToDoPage.btnReminder}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20241022 10:55:04.364" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/toDoHasDateSwitchCompat</msg>
+<status status="PASS" starttime="20241022 10:55:04.348" endtime="20241022 10:55:04.364"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:03.301" endtime="20241022 10:55:04.365"/>
+</kw>
+<kw name="Input Title For Add To-Do List" library="minimalToDoPage">
+<arg>${value}</arg>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${addToDoPage.lblTitleValue}</arg>
+<arg>${value}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20241022 10:55:04.367" level="INFO">Typing text 'ทดสอบ' into text field 'id=com.avjindersinghsekhon.minimaltodo:id/userToDoEditText'</msg>
+<msg timestamp="20241022 10:55:04.391" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<status status="PASS" starttime="20241022 10:55:04.366" endtime="20241022 10:55:04.392"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:04.365" endtime="20241022 10:55:04.392"/>
+</kw>
+<kw name="Click Reminder Button On Add To-Do List Page" library="minimalToDoPage">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${addToDoPage.btnReminder}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20241022 10:55:04.395" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/toDoHasDateSwitchCompat'.</msg>
+<msg timestamp="20241022 10:55:04.953" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/toDoHasDateSwitchCompat</msg>
+<status status="PASS" starttime="20241022 10:55:04.393" endtime="20241022 10:55:04.954"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:04.392" endtime="20241022 10:55:04.955"/>
+</kw>
+<kw name="Verify Date And Time For Reminder On Add To-Do List Page" library="minimalToDoPage">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${addToDoPage.reminder.lblSummaryDateTime}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<msg timestamp="20241022 10:55:05.572" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/newToDoDateTimeReminderTextView</msg>
+<status status="PASS" starttime="20241022 10:55:04.956" endtime="20241022 10:55:05.572"/>
+</kw>
+<kw name="Get Element Attribute" library="AppiumLibrary">
+<var>${date}</var>
+<arg>${addToDoPage.reminder.lblDate}</arg>
+<arg>text</arg>
+<doc>Get element attribute using given attribute: name, value,...</doc>
+<msg timestamp="20241022 10:55:05.612" level="INFO">Element 'id=com.avjindersinghsekhon.minimaltodo:id/newTodoDateEditText' attribute 'text' value 'Today' </msg>
+<msg timestamp="20241022 10:55:05.612" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/newTodoDateEditText</msg>
+<msg timestamp="20241022 10:55:05.612" level="INFO">${date} = Today</msg>
+<status status="PASS" starttime="20241022 10:55:05.573" endtime="20241022 10:55:05.613"/>
+</kw>
+<if>
+<branch type="IF" condition="'${date}' == '${addToDoPage.reminder['lblDate']}'">
+<kw name="Element Should Contain Text" library="AppiumLibrary">
+<arg>${addToDoPage.reminder.lblDate}</arg>
+<arg>${addToDoPage.reminder['lblDate']}</arg>
+<doc>Verifies element identified by ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20241022 10:55:05.617" level="INFO">Verifying element 'id=com.avjindersinghsekhon.minimaltodo:id/newTodoDateEditText' contains text 'Today'.</msg>
+<msg timestamp="20241022 10:55:05.635" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/newTodoDateEditText</msg>
+<status status="PASS" starttime="20241022 10:55:05.614" endtime="20241022 10:55:05.635"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:05.613" endtime="20241022 10:55:05.635"/>
+</branch>
+<branch type="ELSE">
+<kw name="Should Match Regexp" library="BuiltIn">
+<arg>${date}</arg>
+<arg>^\\d{1,2} [A-Za-z]{3}, \\d{4}$</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="NOT RUN" starttime="20241022 10:55:05.636" endtime="20241022 10:55:05.636"/>
+</kw>
+<status status="NOT RUN" starttime="20241022 10:55:05.635" endtime="20241022 10:55:05.636"/>
+</branch>
+<status status="PASS" starttime="20241022 10:55:05.613" endtime="20241022 10:55:05.636"/>
+</if>
+<kw name="Get Element Attribute" library="AppiumLibrary">
+<var>${time}</var>
+<arg>${addToDoPage.reminder.lblTime}</arg>
+<arg>text</arg>
+<doc>Get element attribute using given attribute: name, value,...</doc>
+<msg timestamp="20241022 10:55:05.672" level="INFO">Element 'id=com.avjindersinghsekhon.minimaltodo:id/newTodoTimeEditText' attribute 'text' value '11:00' </msg>
+<msg timestamp="20241022 10:55:05.672" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/newTodoTimeEditText</msg>
+<msg timestamp="20241022 10:55:05.672" level="INFO">${time} = 11:00</msg>
+<status status="PASS" starttime="20241022 10:55:05.636" endtime="20241022 10:55:05.672"/>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<arg>${time}</arg>
+<arg>^(2[0-3]|[01]?[0-9]):([0-5][0-9])$</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" starttime="20241022 10:55:05.672" endtime="20241022 10:55:05.673"/>
+</kw>
+<kw name="Get Element Attribute" library="AppiumLibrary">
+<var>${lblSummaryDateTime}</var>
+<arg>${addToDoPage.reminder.lblSummaryDateTime}</arg>
+<arg>text</arg>
+<doc>Get element attribute using given attribute: name, value,...</doc>
+<msg timestamp="20241022 10:55:05.690" level="INFO">Element 'id=com.avjindersinghsekhon.minimaltodo:id/newToDoDateTimeReminderTextView' attribute 'text' value 'Reminder set for 22 Oct, 2024, 11:00 ' </msg>
+<msg timestamp="20241022 10:55:05.690" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/newToDoDateTimeReminderTextView</msg>
+<msg timestamp="20241022 10:55:05.690" level="INFO">${lblSummaryDateTime} = Reminder set for 22 Oct, 2024, 11:00 </msg>
+<status status="PASS" starttime="20241022 10:55:05.673" endtime="20241022 10:55:05.690"/>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<arg>${lblSummaryDateTime}</arg>
+<arg>Reminder set for (\\d{1,2}) ([A-Za-z]{3}), (\\d{4}), (\\d{1,2}):(\\d{2})</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" starttime="20241022 10:55:05.690" endtime="20241022 10:55:05.690"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:04.955" endtime="20241022 10:55:05.690"/>
+</kw>
+<kw name="Click Action Button On Add To-Do List Page" library="minimalToDoPage">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${addToDoPage.btnAction}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20241022 10:55:05.692" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton'.</msg>
+<msg timestamp="20241022 10:55:05.732" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton</msg>
+<status status="PASS" starttime="20241022 10:55:05.691" endtime="20241022 10:55:05.732"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:05.690" endtime="20241022 10:55:05.733"/>
+</kw>
+<kw name="Verify Home Page With To-Do List" library="minimalToDoPage">
+<arg>${value}</arg>
+<kw name="Page Should Contain Text" library="AppiumLibrary">
+<arg>${text}</arg>
+<doc>Verifies that current page contains `text`.</doc>
+<msg timestamp="20241022 10:55:05.794" level="INFO">Current page contains text 'ทดสอบ'.</msg>
+<status status="PASS" starttime="20241022 10:55:05.733" endtime="20241022 10:55:05.794"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:05.733" endtime="20241022 10:55:05.794"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:01.624" endtime="20241022 10:55:05.794"/>
+</kw>
+<kw name="Add To-Do List With Turn On Remind Me" library="minimalToDofeatures">
+<arg>${Title['english']}</arg>
+<kw name="Click Add To-Do List Button" library="minimalToDoPage">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${homePage.btnAddToDo}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20241022 10:55:05.796" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB'.</msg>
+<msg timestamp="20241022 10:55:06.882" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB</msg>
+<status status="PASS" starttime="20241022 10:55:05.795" endtime="20241022 10:55:06.882"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:05.795" endtime="20241022 10:55:06.882"/>
+</kw>
+<kw name="Verify Default Add To-Do List Page" library="minimalToDoPage">
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${addToDoPage['lblTitleText']}</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20241022 10:55:06.883" endtime="20241022 10:55:07.987"/>
+</kw>
+<kw name="Hide Keyboard" library="AppiumLibrary">
+<doc>Hides the software keyboard on the device. (optional) In iOS, use `key_name` to press
+a particular key, ex. `Done`. In Android, no parameters are used.</doc>
+<status status="PASS" starttime="20241022 10:55:07.988" endtime="20241022 10:55:08.220"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${addToDoPage.btnClose}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20241022 10:55:08.866" level="INFO">xpath criteria: //android.widget.ImageButton[@content-desc="Navigate up"]</msg>
+<status status="PASS" starttime="20241022 10:55:08.220" endtime="20241022 10:55:08.866"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${addToDoPage.lblTitleValue}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20241022 10:55:08.884" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<status status="PASS" starttime="20241022 10:55:08.867" endtime="20241022 10:55:08.884"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${addToDoPage.btnAction}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20241022 10:55:08.900" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton</msg>
+<status status="PASS" starttime="20241022 10:55:08.885" endtime="20241022 10:55:08.900"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${addToDoPage.icoReminder}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20241022 10:55:08.916" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoReminderIconImageButton</msg>
+<status status="PASS" starttime="20241022 10:55:08.901" endtime="20241022 10:55:08.917"/>
+</kw>
+<kw name="Element Should Contain Text" library="AppiumLibrary">
+<arg>${addToDoPage.lblReminder}</arg>
+<arg>${addToDoPage['lblReminder']}</arg>
+<doc>Verifies element identified by ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20241022 10:55:08.921" level="INFO">Verifying element 'id=com.avjindersinghsekhon.minimaltodo:id/userToDoRemindMeTextView' contains text 'Remind Me'.</msg>
+<msg timestamp="20241022 10:55:08.940" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoRemindMeTextView</msg>
+<status status="PASS" starttime="20241022 10:55:08.917" endtime="20241022 10:55:08.941"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${addToDoPage.btnReminder}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20241022 10:55:08.957" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/toDoHasDateSwitchCompat</msg>
+<status status="PASS" starttime="20241022 10:55:08.941" endtime="20241022 10:55:08.958"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:06.883" endtime="20241022 10:55:08.958"/>
+</kw>
+<kw name="Input Title For Add To-Do List" library="minimalToDoPage">
+<arg>${value}</arg>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${addToDoPage.lblTitleValue}</arg>
+<arg>${value}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20241022 10:55:08.962" level="INFO">Typing text 'Test' into text field 'id=com.avjindersinghsekhon.minimaltodo:id/userToDoEditText'</msg>
+<msg timestamp="20241022 10:55:08.983" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<status status="PASS" starttime="20241022 10:55:08.959" endtime="20241022 10:55:08.983"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:08.958" endtime="20241022 10:55:08.983"/>
+</kw>
+<kw name="Click Reminder Button On Add To-Do List Page" library="minimalToDoPage">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${addToDoPage.btnReminder}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20241022 10:55:08.986" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/toDoHasDateSwitchCompat'.</msg>
+<msg timestamp="20241022 10:55:09.552" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/toDoHasDateSwitchCompat</msg>
+<status status="PASS" starttime="20241022 10:55:08.985" endtime="20241022 10:55:09.552"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:08.984" endtime="20241022 10:55:09.552"/>
+</kw>
+<kw name="Verify Date And Time For Reminder On Add To-Do List Page" library="minimalToDoPage">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${addToDoPage.reminder.lblSummaryDateTime}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<msg timestamp="20241022 10:55:10.184" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/newToDoDateTimeReminderTextView
+criteria is com.avjindersinghsekhon.minimaltodo:id/newToDoDateTimeReminderTextView</msg>
+<status status="PASS" starttime="20241022 10:55:09.553" endtime="20241022 10:55:10.184"/>
+</kw>
+<kw name="Get Element Attribute" library="AppiumLibrary">
+<var>${date}</var>
+<arg>${addToDoPage.reminder.lblDate}</arg>
+<arg>text</arg>
+<doc>Get element attribute using given attribute: name, value,...</doc>
+<msg timestamp="20241022 10:55:10.206" level="INFO">Element 'id=com.avjindersinghsekhon.minimaltodo:id/newTodoDateEditText' attribute 'text' value 'Today' </msg>
+<msg timestamp="20241022 10:55:10.207" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/newTodoDateEditText</msg>
+<msg timestamp="20241022 10:55:10.207" level="INFO">${date} = Today</msg>
+<status status="PASS" starttime="20241022 10:55:10.184" endtime="20241022 10:55:10.207"/>
+</kw>
+<if>
+<branch type="IF" condition="'${date}' == '${addToDoPage.reminder['lblDate']}'">
+<kw name="Element Should Contain Text" library="AppiumLibrary">
+<arg>${addToDoPage.reminder.lblDate}</arg>
+<arg>${addToDoPage.reminder['lblDate']}</arg>
+<doc>Verifies element identified by ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20241022 10:55:10.213" level="INFO">Verifying element 'id=com.avjindersinghsekhon.minimaltodo:id/newTodoDateEditText' contains text 'Today'.</msg>
+<msg timestamp="20241022 10:55:10.230" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/newTodoDateEditText</msg>
+<status status="PASS" starttime="20241022 10:55:10.210" endtime="20241022 10:55:10.230"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:10.208" endtime="20241022 10:55:10.231"/>
+</branch>
+<branch type="ELSE">
+<kw name="Should Match Regexp" library="BuiltIn">
+<arg>${date}</arg>
+<arg>^\\d{1,2} [A-Za-z]{3}, \\d{4}$</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="NOT RUN" starttime="20241022 10:55:10.231" endtime="20241022 10:55:10.231"/>
+</kw>
+<status status="NOT RUN" starttime="20241022 10:55:10.231" endtime="20241022 10:55:10.231"/>
+</branch>
+<status status="PASS" starttime="20241022 10:55:10.208" endtime="20241022 10:55:10.231"/>
+</if>
+<kw name="Get Element Attribute" library="AppiumLibrary">
+<var>${time}</var>
+<arg>${addToDoPage.reminder.lblTime}</arg>
+<arg>text</arg>
+<doc>Get element attribute using given attribute: name, value,...</doc>
+<msg timestamp="20241022 10:55:10.247" level="INFO">Element 'id=com.avjindersinghsekhon.minimaltodo:id/newTodoTimeEditText' attribute 'text' value '11:00' </msg>
+<msg timestamp="20241022 10:55:10.247" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/newTodoTimeEditText</msg>
+<msg timestamp="20241022 10:55:10.247" level="INFO">${time} = 11:00</msg>
+<status status="PASS" starttime="20241022 10:55:10.231" endtime="20241022 10:55:10.247"/>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<arg>${time}</arg>
+<arg>^(2[0-3]|[01]?[0-9]):([0-5][0-9])$</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" starttime="20241022 10:55:10.247" endtime="20241022 10:55:10.247"/>
+</kw>
+<kw name="Get Element Attribute" library="AppiumLibrary">
+<var>${lblSummaryDateTime}</var>
+<arg>${addToDoPage.reminder.lblSummaryDateTime}</arg>
+<arg>text</arg>
+<doc>Get element attribute using given attribute: name, value,...</doc>
+<msg timestamp="20241022 10:55:10.265" level="INFO">Element 'id=com.avjindersinghsekhon.minimaltodo:id/newToDoDateTimeReminderTextView' attribute 'text' value 'Reminder set for 22 Oct, 2024, 11:00 ' </msg>
+<msg timestamp="20241022 10:55:10.265" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/newToDoDateTimeReminderTextView</msg>
+<msg timestamp="20241022 10:55:10.265" level="INFO">${lblSummaryDateTime} = Reminder set for 22 Oct, 2024, 11:00 </msg>
+<status status="PASS" starttime="20241022 10:55:10.248" endtime="20241022 10:55:10.265"/>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<arg>${lblSummaryDateTime}</arg>
+<arg>Reminder set for (\\d{1,2}) ([A-Za-z]{3}), (\\d{4}), (\\d{1,2}):(\\d{2})</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" starttime="20241022 10:55:10.265" endtime="20241022 10:55:10.265"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:09.552" endtime="20241022 10:55:10.265"/>
+</kw>
+<kw name="Click Action Button On Add To-Do List Page" library="minimalToDoPage">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${addToDoPage.btnAction}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20241022 10:55:10.267" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton'.</msg>
+<msg timestamp="20241022 10:55:10.319" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton</msg>
+<status status="PASS" starttime="20241022 10:55:10.266" endtime="20241022 10:55:10.319"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:10.266" endtime="20241022 10:55:10.320"/>
+</kw>
+<kw name="Verify Home Page With To-Do List" library="minimalToDoPage">
+<arg>${value}</arg>
+<kw name="Page Should Contain Text" library="AppiumLibrary">
+<arg>${text}</arg>
+<doc>Verifies that current page contains `text`.</doc>
+<msg timestamp="20241022 10:55:10.354" level="INFO">Current page contains text 'Test'.</msg>
+<status status="PASS" starttime="20241022 10:55:10.321" endtime="20241022 10:55:10.354"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:10.320" endtime="20241022 10:55:10.354"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:05.794" endtime="20241022 10:55:10.355"/>
+</kw>
+<kw name="Add To-Do List With Turn On Remind Me" library="minimalToDofeatures">
+<arg>${Title['specialCharacter']}</arg>
+<kw name="Click Add To-Do List Button" library="minimalToDoPage">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${homePage.btnAddToDo}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20241022 10:55:10.360" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB'.</msg>
+<msg timestamp="20241022 10:55:11.501" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/addToDoItemFAB</msg>
+<status status="PASS" starttime="20241022 10:55:10.359" endtime="20241022 10:55:11.501"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:10.359" endtime="20241022 10:55:11.502"/>
+</kw>
+<kw name="Verify Default Add To-Do List Page" library="minimalToDoPage">
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${addToDoPage['lblTitleText']}</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20241022 10:55:11.503" endtime="20241022 10:55:12.577"/>
+</kw>
+<kw name="Hide Keyboard" library="AppiumLibrary">
+<doc>Hides the software keyboard on the device. (optional) In iOS, use `key_name` to press
+a particular key, ex. `Done`. In Android, no parameters are used.</doc>
+<status status="PASS" starttime="20241022 10:55:12.578" endtime="20241022 10:55:12.792"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${addToDoPage.btnClose}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20241022 10:55:13.901" level="INFO">xpath criteria: //android.widget.ImageButton[@content-desc="Navigate up"]</msg>
+<status status="PASS" starttime="20241022 10:55:12.793" endtime="20241022 10:55:13.901"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${addToDoPage.lblTitleValue}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20241022 10:55:13.920" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<status status="PASS" starttime="20241022 10:55:13.901" endtime="20241022 10:55:13.920"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${addToDoPage.btnAction}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20241022 10:55:13.940" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton</msg>
+<status status="PASS" starttime="20241022 10:55:13.921" endtime="20241022 10:55:13.940"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${addToDoPage.icoReminder}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20241022 10:55:13.957" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoReminderIconImageButton</msg>
+<status status="PASS" starttime="20241022 10:55:13.940" endtime="20241022 10:55:13.958"/>
+</kw>
+<kw name="Element Should Contain Text" library="AppiumLibrary">
+<arg>${addToDoPage.lblReminder}</arg>
+<arg>${addToDoPage['lblReminder']}</arg>
+<doc>Verifies element identified by ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20241022 10:55:13.962" level="INFO">Verifying element 'id=com.avjindersinghsekhon.minimaltodo:id/userToDoRemindMeTextView' contains text 'Remind Me'.</msg>
+<msg timestamp="20241022 10:55:13.976" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoRemindMeTextView</msg>
+<status status="PASS" starttime="20241022 10:55:13.958" endtime="20241022 10:55:13.976"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>${addToDoPage.btnReminder}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20241022 10:55:13.991" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/toDoHasDateSwitchCompat</msg>
+<status status="PASS" starttime="20241022 10:55:13.977" endtime="20241022 10:55:13.991"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:11.502" endtime="20241022 10:55:13.991"/>
+</kw>
+<kw name="Input Title For Add To-Do List" library="minimalToDoPage">
+<arg>${value}</arg>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${addToDoPage.lblTitleValue}</arg>
+<arg>${value}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20241022 10:55:13.994" level="INFO">Typing text 'กขค@Abc#๑๒๓$123' into text field 'id=com.avjindersinghsekhon.minimaltodo:id/userToDoEditText'</msg>
+<msg timestamp="20241022 10:55:14.011" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/userToDoEditText</msg>
+<status status="PASS" starttime="20241022 10:55:13.992" endtime="20241022 10:55:14.012"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:13.992" endtime="20241022 10:55:14.012"/>
+</kw>
+<kw name="Click Reminder Button On Add To-Do List Page" library="minimalToDoPage">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${addToDoPage.btnReminder}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20241022 10:55:14.015" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/toDoHasDateSwitchCompat'.</msg>
+<msg timestamp="20241022 10:55:14.565" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/toDoHasDateSwitchCompat</msg>
+<status status="PASS" starttime="20241022 10:55:14.013" endtime="20241022 10:55:14.566"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:14.012" endtime="20241022 10:55:14.566"/>
+</kw>
+<kw name="Verify Date And Time For Reminder On Add To-Do List Page" library="minimalToDoPage">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${addToDoPage.reminder.lblSummaryDateTime}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<msg timestamp="20241022 10:55:15.184" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/newToDoDateTimeReminderTextView</msg>
+<status status="PASS" starttime="20241022 10:55:14.568" endtime="20241022 10:55:15.184"/>
+</kw>
+<kw name="Get Element Attribute" library="AppiumLibrary">
+<var>${date}</var>
+<arg>${addToDoPage.reminder.lblDate}</arg>
+<arg>text</arg>
+<doc>Get element attribute using given attribute: name, value,...</doc>
+<msg timestamp="20241022 10:55:15.209" level="INFO">Element 'id=com.avjindersinghsekhon.minimaltodo:id/newTodoDateEditText' attribute 'text' value 'Today' </msg>
+<msg timestamp="20241022 10:55:15.210" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/newTodoDateEditText</msg>
+<msg timestamp="20241022 10:55:15.210" level="INFO">${date} = Today</msg>
+<status status="PASS" starttime="20241022 10:55:15.184" endtime="20241022 10:55:15.210"/>
+</kw>
+<if>
+<branch type="IF" condition="'${date}' == '${addToDoPage.reminder['lblDate']}'">
+<kw name="Element Should Contain Text" library="AppiumLibrary">
+<arg>${addToDoPage.reminder.lblDate}</arg>
+<arg>${addToDoPage.reminder['lblDate']}</arg>
+<doc>Verifies element identified by ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20241022 10:55:15.214" level="INFO">Verifying element 'id=com.avjindersinghsekhon.minimaltodo:id/newTodoDateEditText' contains text 'Today'.</msg>
+<msg timestamp="20241022 10:55:15.241" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/newTodoDateEditText</msg>
+<status status="PASS" starttime="20241022 10:55:15.212" endtime="20241022 10:55:15.242"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:15.210" endtime="20241022 10:55:15.242"/>
+</branch>
+<branch type="ELSE">
+<kw name="Should Match Regexp" library="BuiltIn">
+<arg>${date}</arg>
+<arg>^\\d{1,2} [A-Za-z]{3}, \\d{4}$</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="NOT RUN" starttime="20241022 10:55:15.242" endtime="20241022 10:55:15.243"/>
+</kw>
+<status status="NOT RUN" starttime="20241022 10:55:15.242" endtime="20241022 10:55:15.243"/>
+</branch>
+<status status="PASS" starttime="20241022 10:55:15.210" endtime="20241022 10:55:15.243"/>
+</if>
+<kw name="Get Element Attribute" library="AppiumLibrary">
+<var>${time}</var>
+<arg>${addToDoPage.reminder.lblTime}</arg>
+<arg>text</arg>
+<doc>Get element attribute using given attribute: name, value,...</doc>
+<msg timestamp="20241022 10:55:15.263" level="INFO">Element 'id=com.avjindersinghsekhon.minimaltodo:id/newTodoTimeEditText' attribute 'text' value '11:00' </msg>
+<msg timestamp="20241022 10:55:15.263" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/newTodoTimeEditText</msg>
+<msg timestamp="20241022 10:55:15.263" level="INFO">${time} = 11:00</msg>
+<status status="PASS" starttime="20241022 10:55:15.243" endtime="20241022 10:55:15.264"/>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<arg>${time}</arg>
+<arg>^(2[0-3]|[01]?[0-9]):([0-5][0-9])$</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" starttime="20241022 10:55:15.264" endtime="20241022 10:55:15.264"/>
+</kw>
+<kw name="Get Element Attribute" library="AppiumLibrary">
+<var>${lblSummaryDateTime}</var>
+<arg>${addToDoPage.reminder.lblSummaryDateTime}</arg>
+<arg>text</arg>
+<doc>Get element attribute using given attribute: name, value,...</doc>
+<msg timestamp="20241022 10:55:15.283" level="INFO">Element 'id=com.avjindersinghsekhon.minimaltodo:id/newToDoDateTimeReminderTextView' attribute 'text' value 'Reminder set for 22 Oct, 2024, 11:00 ' </msg>
+<msg timestamp="20241022 10:55:15.284" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/newToDoDateTimeReminderTextView</msg>
+<msg timestamp="20241022 10:55:15.284" level="INFO">${lblSummaryDateTime} = Reminder set for 22 Oct, 2024, 11:00 </msg>
+<status status="PASS" starttime="20241022 10:55:15.265" endtime="20241022 10:55:15.284"/>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<arg>${lblSummaryDateTime}</arg>
+<arg>Reminder set for (\\d{1,2}) ([A-Za-z]{3}), (\\d{4}), (\\d{1,2}):(\\d{2})</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" starttime="20241022 10:55:15.284" endtime="20241022 10:55:15.285"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:14.566" endtime="20241022 10:55:15.285"/>
+</kw>
+<kw name="Click Action Button On Add To-Do List Page" library="minimalToDoPage">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${addToDoPage.btnAction}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20241022 10:55:15.286" level="INFO">Clicking element 'id=com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton'.</msg>
+<msg timestamp="20241022 10:55:15.332" level="INFO">criteria is com.avjindersinghsekhon.minimaltodo:id/makeToDoFloatingActionButton</msg>
+<status status="PASS" starttime="20241022 10:55:15.285" endtime="20241022 10:55:15.333"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:15.285" endtime="20241022 10:55:15.333"/>
+</kw>
+<kw name="Verify Home Page With To-Do List" library="minimalToDoPage">
+<arg>${value}</arg>
+<kw name="Page Should Contain Text" library="AppiumLibrary">
+<arg>${text}</arg>
+<doc>Verifies that current page contains `text`.</doc>
+<msg timestamp="20241022 10:55:15.362" level="INFO">Current page contains text 'กขค@Abc#๑๒๓$123'.</msg>
+<status status="PASS" starttime="20241022 10:55:15.334" endtime="20241022 10:55:15.362"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:15.333" endtime="20241022 10:55:15.363"/>
+</kw>
+<status status="PASS" starttime="20241022 10:55:10.355" endtime="20241022 10:55:15.363"/>
+</kw>
+<status status="PASS" starttime="20241022 10:54:55.131" endtime="20241022 10:55:15.364"/>
+</test>
+<kw name="Close All Applications" library="AppiumLibrary" type="TEARDOWN">
+<doc>Closes all open applications.</doc>
+<status status="PASS" starttime="20241022 10:55:15.365" endtime="20241022 10:55:15.502"/>
+</kw>
+<status status="PASS" starttime="20241022 10:54:55.064" endtime="20241022 10:55:15.502"/>
+</suite>
+<status status="PASS" starttime="20241022 10:54:55.063" endtime="20241022 10:55:15.504"/>
+</suite>
+<status status="PASS" starttime="20241022 10:54:55.055" endtime="20241022 10:55:15.505"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot-Framework">Robot-Framework</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Testcases">Robot-Framework.Testcases</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="ttbSparkAutomationTestAssignment">Robot-Framework.Testcases.ttbSparkAutomationTestAssignment</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
