@@ -3,6 +3,6 @@ remoteUrl:          http://localhost:4723/wd/hub
 platformName:       android
 deviceVer:          '13'
 deviceName:         emulator-5554
-app:                /Users/5327969/Documents/untitled folder/Minimal-Todo-master/app/app-release.apk
+app:                /Minimal-Todo-master/app/app-release.apk
 permissions:        true
 globalTimeout:      60
